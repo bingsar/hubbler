@@ -8,14 +8,14 @@ export default function UsersTable() {
     const [message, setMessage] = useState('')
 
     useEffect(() => {
-        axios.get('https://hubbler-panel.herokuapp.com/api/get/users').then((response) => {
+        axios.get('https://hubbler-bot.herokuapp.com/api/get/users').then((response) => {
             setUsers(response.data)
         })
     }, [])
 
     const sendMessageToChatId = async (telegramId, chatId, message) => {
         encodeURI(message)
-        await axios.post(`https://hubbler-panel.herokuapp.com/api/send/message/${telegramId}/${chatId}/${message}`).then((response) => {
+        await axios.post(`https://hubbler-bot.herokuapp.com/api/send/message/${telegramId}/${chatId}/${message}`).then((response) => {
             console.log(response)
         })
     }

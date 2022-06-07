@@ -6,13 +6,13 @@ export default function MessagesTable() {
     const [messages, setMessages] = useState([])
 
     const deleteMessage = (messageId) => {
-        axios.delete(`https://hubbler-panel.herokuapp.com/api/delete/messages/${messageId}`).then(() => {
+        axios.delete(`https://hubbler-bot.herokuapp.com/api/delete/messages/${messageId}`).then(() => {
             console.log('delete')
         })
     }
 
     useEffect(() => {
-        axios.get('https://hubbler-panel.herokuapp.com/api/get/messages').then((response) => {
+        axios.get('https://hubbler-bot.herokuapp.com/api/get/messages').then((response) => {
             setMessages(response.data)
         })
     }, [])
