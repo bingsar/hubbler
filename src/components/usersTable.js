@@ -35,11 +35,12 @@ export default function UsersTable() {
                 <tr className="">
                     <th scope="col">chat_ID</th>
                     <th scope="col">Telegram username</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Contact</th>
+                    <th scope="col">Имя</th>
+                    <th scope="col">Специализация</th>
+                    <th scope="col">Контакт</th>
                     <th scope="col">CV</th>
-                        <th scope="col">About</th>
-                        <th scope="col">Actions</th>
+                    <th scope="col">О себе</th>
+                    <th scope="col">Действия</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -48,6 +49,7 @@ export default function UsersTable() {
                             <td>{value.chat_id}</td>
                             <td>{value.telegram_id}</td>
                             <td>{decodeURI(value.name)}</td>
+                            <td>{decodeURI(value.chosen_category)}</td>
                             <td>{value.contact}</td>
                             <td>{decodeURI(value.cv)}</td>
                             <td>{decodeURI(value.about)}</td>
