@@ -67,7 +67,7 @@ export default function UsersTable() {
                             <td>{value.contact}</td>
                             <td>{value.relocation}</td>
                             <td>{value.cv_type}</td>
-                            <td><a href={decodeURI(value.cv)}>{decodeURI(value.cv_type) == 'cv_link' ? "Перейти" : "Скачать" }</a></td>
+                            <td>{decodeURI(value.cv)}</td>
                             <td>{decodeURI(value.about)}</td>
                             <td>
                                 <form action="" onSubmit={() => {sendMessageToChatId(value.telegram_id, value.chat_id, message)}}>
