@@ -20,6 +20,12 @@ export default function UsersTable() {
         })
     }
 
+    const deleteRow = async (id) => {
+        await axios.delete(`https://hubbler-bot.herokuapp.com/api/delete/user/${id}`).then((response) => {
+            console.log(response)
+        })
+    }
+
     console.log(message)
 
     const messageText = async (e) => {
@@ -33,6 +39,7 @@ export default function UsersTable() {
             <table className="table table-hover">
                 <thead>
                 <tr className="">
+                    <th scope="col">ID</th>
                     <th scope="col">chat_ID</th>
                     <th scope="col">Telegram username</th>
                     <th scope="col">Имя из Телеграма</th>
@@ -50,6 +57,7 @@ export default function UsersTable() {
                     <tbody>
     {users.map((value) => {
                  return <tr>
+                            <td>{value.id}</td>
                             <td>{value.chat_id}</td>
                             <td>{value.telegram_id}</td>
                             <td>{value.telegram_first_name}</td>
@@ -65,6 +73,9 @@ export default function UsersTable() {
                                 <form action="" onSubmit={() => {sendMessageToChatId(value.telegram_id, value.chat_id, message)}}>
                                     <textarea name="messageToApplicant" id="messageToApplicant" cols="30" rows="1" onChange={messageText} />
                                     <button className="btn btn-dark send_message">Отправить</button>
+                                </form>
+                                <form action="" onSubmit={() => {deleteRow(value.id)}}>
+                                    <button className="btn btn-danger send_message">Удалить</button>
                                 </form>
                             </td>
                         </tr>
