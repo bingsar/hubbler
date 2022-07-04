@@ -63,7 +63,7 @@ export default function UsersTable() {
                             <td>{value.telegram_first_name ? value.telegram_first_name : ''}</td>
                             <td>{value.telegram_last_name ? value.telegram_last_name : ''}</td>
                             <td>{value.name? decodeURI(value.name) : ''}</td>
-                            <td>{value.chosen_category? decodeURI(value.chosen_category) : ''}</td>
+                            <td>{value.chosen_category? value.chosen_category : ''}</td>
                             <td>{value.contact ? value.contact : ''}</td>
                             <td>{value.relocation ? value.relocation : ''}</td>
                             <td>{value.cv_type ? value.cv_type : ''}</td>
