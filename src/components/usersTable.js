@@ -57,18 +57,18 @@ export default function UsersTable() {
                     <tbody>
     {users.map((value) => {
                  return <tr>
-                            <td>{value.id}</td>
-                            <td>{value.chat_id}</td>
-                            <td>{value.telegram_id}</td>
-                            <td>{value.telegram_first_name}</td>
-                            <td>{value.telegram_last_name}</td>
-                            <td>{decodeURI(value.name)}</td>
-                            <td>{decodeURI(value.chosen_category)}</td>
-                            <td>{value.contact}</td>
-                            <td>{value.relocation}</td>
-                            <td>{value.cv_type}</td>
-                            <td>{decodeURI(value.cv)}</td>
-                            <td>{decodeURI(value.about)}</td>
+                            <td>{value.id ? value.id : ''}</td>
+                            <td>{value.chat_id ? value.chat_id : ''}</td>
+                            <td>{value.telegram_id ? value.telegram_id : ''}</td>
+                            <td>{value.telegram_first_name ? value.telegram_first_name : ''}</td>
+                            <td>{value.telegram_last_name ? value.telegram_last_name : ''}</td>
+                            <td>{value.name? decodeURI(value.name) : ''}</td>
+                            <td>{value.chosen_category? decodeURI(value.chosen_category) : ''}</td>
+                            <td>{value.contact ? value.contact : ''}</td>
+                            <td>{value.relocation ? value.relocation : ''}</td>
+                            <td>{value.cv_type ? value.cv_type : ''}</td>
+                            <td>{value.cv ? decodeURI(value.cv) : ''}</td>
+                            <td>{value.about ? decodeURI(value.about) : ''}</td>
                             <td>
                                 <form action="" onSubmit={() => {sendMessageToChatId(value.telegram_id, value.chat_id, message)}}>
                                     <textarea name="messageToApplicant" id="messageToApplicant" cols="30" rows="1" onChange={messageText} />
